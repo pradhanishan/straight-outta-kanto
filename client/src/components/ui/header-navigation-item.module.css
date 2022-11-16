@@ -1,0 +1,22 @@
+.link,
+.active-link {
+  text-decoration: none;
+  margin-right: 1rem;
+  color: var(--color-primary-font);
+}
+
+.active-link {
+  font-weight: bold;
+  color: var(--color-primary-accent);
+}
+
+.link:hover,
+.link:focus,
+.active-link:hover,
+.active-link:focus {
+  color: var(--color-primary-accent);
+}
+
+.pointer {
+  display: none;
+}
