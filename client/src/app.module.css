@@ -3,3 +3,7 @@
   color: var(--color-primary-font);
   min-height: 100vh;
 }
+
+.main {
+  padding: 0 1rem;
+}

@@ -10,7 +10,7 @@ const App: FC = () => {
   return (
     <div className={classes.app}>
       <Header />
-      <main>
+      <main className={classes.main}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
