@@ -15,7 +15,7 @@ const SearchBar: FC<ISearchBarProps> = (props: ISearchBarProps) => {
   };
 
   return (
-    <InputGroup size="sm" className="m-3" style={{ width: "90%" }}>
+    <InputGroup size="sm" className="m-3">
       <InputGroup.Text id="inputGroup-sizing-sm">
         <RiSearchEyeLine size={32} />
       </InputGroup.Text>
