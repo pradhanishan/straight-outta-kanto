@@ -2,12 +2,17 @@ import { FC } from "react";
 import classes from "./pokemon-card.module.css";
 import defaultPokemonImage from "../../assets/images/pokemon-default.png";
 import { IPokemon } from "../../interfaces/IPokemon";
+import { TfiMoreAlt } from "react-icons/tfi";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface IPokemonCardProps {
   pokemon: IPokemon;
 }
 
 const PokemonCard: FC<IPokemonCardProps> = (props: IPokemonCardProps) => {
+  const navigate = useNavigate();
+
   return (
     <div className={classes["pokemon-card"]}>
       <b className="mb-3">{props.pokemon.name.toUpperCase()}</b>
@@ -31,7 +36,15 @@ const PokemonCard: FC<IPokemonCardProps> = (props: IPokemonCardProps) => {
           );
         })}
       </div>
-      <div className={classes["details-button"]}>Details</div>
+
+      <div
+        className={classes["details-button"]}
+        onClick={() => {
+          navigate("/detail", { state: { name: props.pokemon.name.toLowerCase() } });
+        }}
+      >
+        Details <TfiMoreAlt className="mx-3" />{" "}
+      </div>
     </div>
   );
 };

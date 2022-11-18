@@ -1,17 +1,22 @@
 import { FC, MouseEventHandler } from "react";
 import ListGroup from "react-bootstrap/esm/ListGroup";
+import { useNavigate } from "react-router-dom";
 
 interface ISearchResultItemProps {
   name: string;
-  selectPokemonNameHandler: any;
 }
 
 const SearchResultItem: FC<ISearchResultItemProps> = (props: ISearchResultItemProps) => {
-  const handleSelectPokemon = (event: React.MouseEvent) => {
-    props.selectPokemonNameHandler(props.name);
-  };
-
-  return <ListGroup.Item onClick={handleSelectPokemon}>{props.name}</ListGroup.Item>;
+  const navigate = useNavigate();
+  return (
+    <ListGroup.Item
+      onClick={() => {
+        navigate("/detail", { state: { name: props.name.toLowerCase() } });
+      }}
+    >
+      {props.name}
+    </ListGroup.Item>
+  );
 };
 
 export default SearchResultItem;

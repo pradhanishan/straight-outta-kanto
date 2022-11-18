@@ -11,7 +11,6 @@ const HomePage: FC = () => {
   const [searchBarInput, setSearchBarInput] = useState<string>("");
   const [allPokemonNames, setAllPokemonNames] = useState<string[]>([]);
   const [searchedPokemonResultNames, setSeaarchedPokemonResultNames] = useState<string[]>([]);
-  const [selectedPokemon, setSelectedPokemon] = useState<string>("");
   const [pokemonDisplayRange, setPokemonDisplayRange] = useState<{ from: number; to: number }>({ from: 1, to: 12 });
   const [pokemonInGrid, setPokemonInGrid] = useState<IPokemon[]>([]);
 
@@ -54,10 +53,6 @@ const HomePage: FC = () => {
     setSearchBarInput(inputText);
   };
 
-  const handleSelectPokemon = (selectedPokemonName: string) => {
-    setSelectedPokemon(selectedPokemonName);
-  };
-
   const handleChangePageDisplayRange = (changeType: string) => {
     if (changeType === "next" && pokemonDisplayRange.to + 12 <= allPokemonNames.length) {
       setPokemonDisplayRange({
@@ -92,9 +87,7 @@ const HomePage: FC = () => {
     <div className={classes["home-page-container"]}>
       <div className={classes["home-page-search-container"]}>
         <SearchBar searchBarInputChangeHandler={handleSearchBarInputChange} searchBarInput={searchBarInput} />
-        {searchBarInput.length > 0 ? (
-          <SearchResult results={searchedPokemonResultNames} selectPokemonNameHandler={handleSelectPokemon} />
-        ) : null}
+        {searchBarInput.length > 0 ? <SearchResult results={searchedPokemonResultNames} /> : null}
       </div>
       <div className={classes["pokemon-cards-container"]}>
         {pokemonInGrid.map((pokemon) => {
