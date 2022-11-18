@@ -22,7 +22,10 @@ const PokemonCard: FC<IPokemonCardProps> = (props: IPokemonCardProps) => {
       <div className={classes["pokemon-types-container"]}>
         {props.pokemon.types.map((type) => {
           return (
-            <span className={classes["pokemon-type"]} key={props.pokemon.name + type.type.name}>
+            <span
+              className={`${classes["pokemon-type"]} ${classes[`${type.type.name.trim().toLowerCase()}`]}`}
+              key={props.pokemon.name + type.type.name}
+            >
               {type.type.name}
             </span>
           );
