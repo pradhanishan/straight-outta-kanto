@@ -30,5 +30,11 @@ export interface IPokemon {
     types: { slot: number; type: { name: string; url: string } }[];
     weight: number;
   };
+  stats: {
+    base_stat: number;
+    effort: number;
+    stat: { name: string; url: string };
+  }[];
   types: { type: { name: string; url: string } }[];
+  weight: number;
 }

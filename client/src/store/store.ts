@@ -7,6 +7,11 @@ export const store = configureStore({
     pokemonNavigation: pokemonNavigationSlice.reducer,
     pokemonGrid: pokemonGridSlice.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      immutableCheck: false,
+      serializableCheck: false,
+    }),
 });
 
 export type AppDispatch = typeof store.dispatch;

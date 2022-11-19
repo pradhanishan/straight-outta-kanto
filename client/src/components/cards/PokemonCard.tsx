@@ -20,7 +20,7 @@ const PokemonCard: FC<IPokemonCardProps> = (props: IPokemonCardProps) => {
         <img
           src={props.pokemon.sprites.front_default === null ? defaultPokemonImage : props.pokemon.sprites.front_default}
           height="250px"
-          alt="bulbasaur"
+          alt={props.pokemon.name}
         />
       </div>
 
